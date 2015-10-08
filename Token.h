@@ -1,7 +1,3 @@
-//
-// Created by joshu on 10/6/2015.
-//
-
 #ifndef QCL_COMPILER_TOKEN_H
 #define QCL_COMPILER_TOKEN_H
 
