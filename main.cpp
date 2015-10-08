@@ -57,6 +57,7 @@ int main() {
     char *addition_code = (char *) "var num1;var num2;var ans;input num1;input num2;add ans num1 num2;printvar ans;";
     char *subtraction_code = (char *) "var num1;var num2;var ans;input num1;input num2;sub ans num1 num2;printvar ans;";
     char *division_code = (char *) "var num1;var num2;var ans;input num1;input num2;div ans num1 num2;printvar ans;";
+    char *deg_code = (char *) "var deg;var rad;var onee;var pi;var data;var ans;var uIn;set pi 3.1415;set onee 180;set rad torad;set deg todeg;input data;input uIn;ifeq uIn rad;div ans pi onee;endif;ifeq uIn deg;div ans onee pi;endif;mult ans data ans;printvar ans;";
 
 
     //first input is num1, second is operator (+-*/), third is num2
@@ -65,7 +66,7 @@ int main() {
 //    char *if_code = (char *) "var div;set div /;";
 
 
-    char *code = calc_code;
+    char *code = deg_code;
 
     list<string> list1;
     list1 = split(code, ';');
