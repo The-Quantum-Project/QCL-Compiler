@@ -1,5 +1,5 @@
 #include "Token.h"
-#include "Scanner.h"
+#include <list>
 #include <iostream>
 #include <stdlib.h>
 #include <sstream>
