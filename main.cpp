@@ -90,9 +90,12 @@ int main() {
 
     run(list1);
 
+#ifdef _WIN32
+    // Win specific code...
     system("pause");
+#endif
+
     exit(0);
-    return 0;
 }
 
 int ifLevel = 0;
