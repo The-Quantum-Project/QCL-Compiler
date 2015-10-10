@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <sstream>
 #include <unordered_map>
+#include <bits/stream_iterator.h>
 
 void run(std::list<string> list);
 
@@ -30,6 +31,20 @@ using namespace std;
 
 std::ostream &operator<<(std::ostream &os, TokenType tt) {
     return os << static_cast<int >(tt);
+}
+
+
+std::string join(std::list<string> &elements, const char *const seperator) {
+    switch (elements.size()) {
+        case 0:
+            return "";
+        case 1:
+            return *elements.begin();
+        default:
+            ostringstream os;
+            copy(elements.begin(), elements.end(), std::ostream_iterator<string>(os, seperator));
+            return os.str();
+    }
 }
 
 std::list<std::string> &split(const std::string &s, char delim, std::list<std::string> &elems) {
@@ -92,10 +107,7 @@ int main(int argc, char *argv[]) {
     File file("Calc.quciel");
     const char *code = file.GetContents();
 
-    list <string> list1;
-    list1 = split(code, ';');
-
-    run(list1);
+    run(split(code, ';'));
 
     exit(0);
 }
@@ -104,30 +116,26 @@ int ifLevel = 0;
 
 void run(std::list<string> list1) {
     unordered_map<string, string> varMap;
-    for (std::list<string>::iterator list_iter = list1.begin(); list_iter != list1.end(); list_iter++) {
-        std::cout << "\t" << *list_iter << " : " << ifLevel << endl;
-        list <string> parts = split(*list_iter, ' ');
+    for (std::list<string>::iterator list_iterator = list1.begin(); list_iterator != list1.end(); list_iterator++) {
+//        std::cout << "\t" << *list_iterator << " : " << ifLevel << endl;
+        list<string> parts = split(*list_iterator, ' ');
         if (ifLevel < 1) {
             if (*parts.begin() == "var") {
                 parts.pop_front();
                 varMap.insert(make_pair(*parts.begin(), ""));
             }
             if (*parts.begin() == "set") {
-                list <string> parts2 = split(*list_iter, ' ');
-                parts2.pop_front();
-                string dev[3];
-                int i = 0;
-                for (auto &itr : parts2) {
-                    dev[i] = itr;
-                    i++;
-                }
-                auto it = varMap.find(dev[0]);
+                parts.pop_front();
+                string var = *parts.begin();
+                parts.pop_front();
+                string data = join(parts, " ");
+                auto it = varMap.find(var);
                 if (it != varMap.end())
-                    it->second = dev[1];
+                    it->second = data;
             }
             if (*parts.begin() == "printvar") {
                 parts.pop_front();
-                cout << "Value of " << *parts.begin() << ": " << varMap[*parts.begin()] << endl;
+                cout << varMap[*parts.begin()] << endl;
             }
             if (*parts.begin() == "add") {
                 parts.pop_front();

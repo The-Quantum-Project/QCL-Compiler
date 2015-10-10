@@ -1,3 +1,4 @@
+var p1;
 var vdiv;
 set vdiv /;
 var vmult;
@@ -10,8 +11,15 @@ var num1;
 var num2;
 var opt;
 var ans;
+
+set p1 Enter your first number!;
+printvar p1;
 input num1;
+set p1 Enter the operation!;
+printvar p1;
 input opt;
+set p1 Enter your second number!;
+printvar p1;
 input num2;
 
 ifeq opt vadd;
@@ -27,4 +35,7 @@ ifeq opt vdiv;
     div ans num1 num2;
 endif;
 
+
+set p1 The answer is:;
+printvar p1;
 printvar ans;
