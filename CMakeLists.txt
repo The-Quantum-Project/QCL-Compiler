@@ -20,9 +20,9 @@ add_compile_options(-std=c++11)
 set(SOURCE_FILES
         main.cpp
         Token.cpp
-        Token.h
-        TokenType.h
-        stinc.h
-        File.cpp File.h)
+        Token.hpp
+        TokenType.hpp
+        stinc.hpp
+        File.cpp File.hpp)
 
 add_executable(QCL_Compiler ${SOURCE_FILES})

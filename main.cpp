@@ -15,8 +15,8 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "File.h"
-#include "Token.h"
+#include "File.hpp"
+#include "Token.hpp"
 
 #include <list>
 #include <iostream>

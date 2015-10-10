@@ -15,7 +15,7 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Token.h"
+#include "Token.hpp"
 
 Token::Token(TokenType tktype, string val) {
     type = tktype;

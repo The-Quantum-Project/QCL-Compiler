@@ -15,7 +15,7 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "File.h"
+#include "File.hpp"
 
 File::File(const char *filelocation) {
     ifstream file(filelocation, ios_base::in);

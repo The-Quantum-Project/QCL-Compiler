@@ -18,7 +18,7 @@
 #ifndef QCL_COMPILER_TOKEN_H
 #define QCL_COMPILER_TOKEN_H
 
-#include "TokenType.h"
+#include "TokenType.hpp"
 #include <string>
 
 using namespace std;
