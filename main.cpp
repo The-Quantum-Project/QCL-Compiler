@@ -15,6 +15,7 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "Compiler.hpp"
 #include "File.hpp"
 #include "Token.hpp"
 
@@ -77,6 +78,16 @@ int main(int argc, char *argv[]) {
 
     }
 
+    Compiler::Arguments args;
+    args.input = (char *) "";
+    args.libraries = (char *) "";
+    args.output = (char *) "";
+    args.mxr = 0;
+    args.mir = 0;
+
+    Compiler compiler(args);
+    compiler.Compile();
+
 
 //    char *code = (char *) "var hi\n"
 //            "var hello\n"
@@ -104,7 +115,7 @@ int main(int argc, char *argv[]) {
 
 //    char *if_code = (char *) "var div;set div /;";
 
-    File file("Calc.quciel");
+    File file("Calc.qx");
     const char *code = file.GetContents();
 
     run(split(code, ';'));

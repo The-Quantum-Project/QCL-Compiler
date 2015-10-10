@@ -15,8 +15,14 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Compiler.h"
+#include "Compiler.hpp"
 
-Compiler::Compiler(Compiler::Arguments args) {
+Compiler::Compiler(Compiler::Arguments args) : x_Arguments(args) {
 
+}
+
+void Compiler::Compile() {
+    // arr for each input value
+    // for each input file compile
+    // save each input to its corresponding output
 }

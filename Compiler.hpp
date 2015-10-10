@@ -18,6 +18,9 @@
 #ifndef QCL_COMPILER_COMPILER_H
 #define QCL_COMPILER_COMPILER_H
 
+#include <string>
+#include <vector>
+
 class Compiler {
 public:
     typedef struct {
@@ -30,6 +33,12 @@ public:
 
     Compiler(Arguments args);
 
+    void Compile();
+
+    virtual void Link() {};
+
+protected:
+    Arguments x_Arguments;
 };
 
 #endif //QCL_COMPILER_COMPILER_H
