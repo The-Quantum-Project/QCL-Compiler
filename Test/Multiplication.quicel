@@ -1,0 +1,10 @@
+var num1;
+var num2;
+var ans;
+
+input num1;
+input num2;
+
+mult ans num1 num2;
+
+printvar ans;

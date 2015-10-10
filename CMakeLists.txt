@@ -24,6 +24,6 @@ set(SOURCE_FILES
         TokenType.hpp
         stinc.hpp
         File.cpp
-        File.hpp)
+        File.hpp Compiler.cpp Compiler.h)
 
 add_executable(QCL_Compiler ${SOURCE_FILES})

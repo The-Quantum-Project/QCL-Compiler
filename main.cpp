@@ -56,7 +56,12 @@ std::string to_string(T const &value) {
     return sstr.str();
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    for (int i = 1; i < argc; i++) {
+
+    }
+
 
 //    char *code = (char *) "var hi\n"
 //            "var hello\n"
@@ -87,7 +92,7 @@ int main() {
     File file("Calc.quciel");
     const char *code = file.GetContents();
 
-    list<string> list1;
+    list <string> list1;
     list1 = split(code, ';');
 
     run(list1);
@@ -101,14 +106,14 @@ void run(std::list<string> list1) {
     unordered_map<string, string> varMap;
     for (std::list<string>::iterator list_iter = list1.begin(); list_iter != list1.end(); list_iter++) {
         std::cout << "\t" << *list_iter << " : " << ifLevel << endl;
-        list<string> parts = split(*list_iter, ' ');
+        list <string> parts = split(*list_iter, ' ');
         if (ifLevel < 1) {
             if (*parts.begin() == "var") {
                 parts.pop_front();
                 varMap.insert(make_pair(*parts.begin(), ""));
             }
             if (*parts.begin() == "set") {
-                list<string> parts2 = split(*list_iter, ' ');
+                list <string> parts2 = split(*list_iter, ' ');
                 parts2.pop_front();
                 string dev[3];
                 int i = 0;
