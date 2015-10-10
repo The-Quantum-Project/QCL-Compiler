@@ -26,3 +26,8 @@ void Compiler::Compile() {
     // for each input file compile
     // save each input to its corresponding output
 }
+
+void Compiler::Link() {
+    // link together all the code into one file from the designated out var
+    // link libraries
+}
