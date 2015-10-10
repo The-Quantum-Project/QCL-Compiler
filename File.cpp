@@ -15,12 +15,21 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Token.h"
+#include "File.h"
 
-Token::Token(TokenType tktype, string val) {
-    type = tktype;
-    value = val;
+File::File(const char *filelocation) {
+    ifstream file(filelocation, ios_base::in);
+    if (file.is_open()) {
+        string x;
+        while (getline(file, x)) {
+            this->file.append(x);
+        }
+        file.close();
+    } else {
+        cerr << filelocation << " was unable to load." << endl;
+    }
 }
 
-Token::~Token() {
+const char *File::GetContents() {
+    return file.c_str();
 }

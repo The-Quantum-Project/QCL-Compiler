@@ -15,12 +15,25 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Token.h"
+#ifndef QCL_COMPILER_FILE_H
+#define QCL_COMPILER_FILE_H
 
-Token::Token(TokenType tktype, string val) {
-    type = tktype;
-    value = val;
-}
+#include <iostream>
+#include <fstream>
 
-Token::~Token() {
-}
+using namespace std;
+
+class File {
+public:
+
+    File(const char* filelocation);
+
+    const char* GetContents();
+
+protected:
+
+    string file;
+
+};
+
+#endif //QCL_COMPILER_FILE_H

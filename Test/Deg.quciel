@@ -1,0 +1,24 @@
+var deg;
+var rad;
+var onee;
+var pi;
+var data;
+var ans;
+var uIn;
+set pi 3.1415;
+set onee 180;
+set rad torad;
+set deg todeg;
+
+input data;
+input uIn;
+
+ifeq uIn rad;
+    div ans pi onee;
+endif;
+ifeq uIn deg;
+    div ans onee pi;
+endif;
+mult ans data ans;
+
+printvar ans;

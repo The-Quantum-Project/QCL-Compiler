@@ -1,0 +1,30 @@
+var vdiv;
+set vdiv /;
+var vmult;
+set vmult *;
+var vadd;
+set vadd +;
+var vmin;
+set vmin -;
+var num1;
+var num2;
+var opt;
+var ans;
+input num1;
+input opt;
+input num2;
+
+ifeq opt vadd;
+    add ans num1 num2;
+endif;
+ifeq opt vmin;
+    sub ans num1 num2;
+endif;
+ifeq opt vmult;
+    mult ans num1 num2;
+endif;
+ifeq opt vdiv;
+    div ans num1 num2;
+endif;
+
+printvar ans;

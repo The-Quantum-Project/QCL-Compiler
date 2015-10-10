@@ -15,7 +15,9 @@
  *      along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "File.h"
 #include "Token.h"
+
 #include <list>
 #include <iostream>
 #include <stdlib.h>
@@ -82,18 +84,13 @@ int main() {
 
 //    char *if_code = (char *) "var div;set div /;";
 
-
-    char *code = deg_code;
+    File file("Calc.quciel");
+    const char *code = file.GetContents();
 
     list<string> list1;
     list1 = split(code, ';');
 
     run(list1);
-
-#ifdef _WIN32
-    // Win specific code...
-    system("pause");
-#endif
 
     exit(0);
 }
